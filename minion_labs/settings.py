@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'client.apps.ClientConfig',
 #     packages
     'phone_field',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
