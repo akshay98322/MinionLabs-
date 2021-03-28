@@ -8,7 +8,7 @@ from django.contrib import messages
 
 class ClientCreateView(SuccessMessageMixin, CreateView):
     model = Client
-    success_message = 'Client successful created'
+    success_message = 'Client successfully created'
     fields = ['name', 'email', 'phone', 'address', 'client_id']
 
 
