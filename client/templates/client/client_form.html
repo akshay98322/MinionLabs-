@@ -1,14 +1,46 @@
-<div class="content-section">
-        <form method="post">
-            {%  csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Register Client</legend>
-                  {{ form }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Register</button>
-            </div>
+{% load crispy_forms_tags %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-        </form>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
+
+<div class="container">
+<br>  <p class="text-center">Client Entry Form</p>
+<hr>
+{% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+{% endif %}
+
+<div class="row justify-content-center">
+	<div class="col-md-6">
+		<div class="card">
+			<header class="card-header">
+				<h4 class="card-title mt-2">Client Register</h4>
+			</header>
+			<article class="card-body">
+			<form method="POST">
+				{%  csrf_token %}
+				<div class="form-row">
+					<div class="col form-group">
+						{{ form|crispy }}
+					</div> <!-- form-group end.// -->
+
+				</div> <!-- form-row end.// -->
+			    <div class="form-group">
+			        <button type="submit" class="btn btn-primary btn-block"> Register</button>
+			    </div> <!-- form-group// -->
+
+			</form>
+
+			</article>
+        </div>
+    </div>
+</div>
 </div>

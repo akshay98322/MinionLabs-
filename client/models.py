@@ -22,7 +22,7 @@ class Client(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('register')
+        return reverse('client-create')
 
 
 

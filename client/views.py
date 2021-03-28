@@ -1,12 +1,13 @@
-from django.shortcuts import render,redirect
-from .models import Client,Device
+from django.shortcuts import render, redirect
+from .models import Client, Device
 from django.views.generic import CreateView
 from .forms import DeviceRegistrationForm
+from django.contrib.messages.views import SuccessMessageMixin
 
 
-
-class ClientCreateView(CreateView):
+class ClientCreateView(SuccessMessageMixin, CreateView):
     model = Client
+    success_message = 'Client successful created'
     fields = ['name', 'email', 'phone', 'address', 'client_id']
 
 
@@ -18,7 +19,7 @@ def DeviceRegistartionView(request):
             mac_address = form.cleaned_data['mac_address']
             # username = form.cleaned_data.get('username')
             # messages.success(request, f'Your Account Created Successfully! Now you can log in.!')
-            device = Device(device_id=device_id,mac_address=mac_address)
+            device = Device(device_id=device_id, mac_address=mac_address)
             device.save()
             return redirect('register')
     else:
