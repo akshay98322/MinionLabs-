@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 #     apps
     'users.apps.UsersConfig',
+    'client.apps.ClientConfig',
 #     packages
     'phone_field',
 ]
