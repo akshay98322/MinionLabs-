@@ -15,3 +15,7 @@ def register(request):
 
         form = RegistrationForm
     return render(request, 'users/register.html', {'form': form})
+
+
+def home(request):
+    return render(request, 'users/index.html',)
